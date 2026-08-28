@@ -1,0 +1,58 @@
+import React from "react";
+import Sect from "./components/sections";
+function App() {
+  return (
+    <div>
+      <Sect></Sect>
+    </div>
+  );
+}
+
+export default App;
+
+//sections.jsx
+import React from "react";
+
+export default function Sect() {
+  const Styles = {
+    Head: {
+      marginTop: "20px",
+    },
+
+    Main: {
+      display: "flex",
+      gap: "20px",
+      marginTop: "20px",
+    },
+
+    Column: {
+      flex: 1,
+      minHeight: "20vh",
+      color: "red",
+      border: "20px solid black",
+      padding: "20px",
+    },
+
+    Foot: {
+      marginTop: "20px",
+    },
+  };
+
+  return (
+    <div>
+      <header style={Styles.Head}>
+        <h1>This is the header</h1>
+      </header>
+
+      <main style={Styles.Main}>
+        <div style={Styles.Column}>Column 1</div>
+        <div style={Styles.Column}>Column 2</div>
+        <div style={Styles.Column}>Column 3</div>
+      </main>
+
+      <footer style={Styles.Foot}>
+        <h1>This is the footer</h1>
+      </footer>
+    </div>
+  );
+}
