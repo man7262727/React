@@ -1,0 +1,48 @@
+import React from "react";
+import Accord from "./components/accord";
+
+function App() {
+  return (
+    <div>
+      <h1 style={{ textAlign: "center", marginTop: "20px" }}>App Overview:</h1>
+
+      <Accord />
+    </div>
+  );
+}
+
+export default App;
+
+
+//accord.jsx
+import React from "react";
+
+const Accord = () => {
+  const sections = [
+    {
+      title: "Lord of Mysteries",
+      content: "Intro of LOTM",
+    },
+    {
+      title: "Features",
+      content: "Sorry brother, no features to use. Try again.",
+    },
+    {
+      title: "Usage",
+      content: "It isn't used bro, it's read. Don't use it, only read it.",
+    },
+  ];
+
+  return (
+    <div>
+      {sections.map((section, index) => (
+        <div key={index}>
+          <h2>{section.title}</h2>
+          <p>{section.content}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Accord;
