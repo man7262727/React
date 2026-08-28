@@ -1,0 +1,62 @@
+import "./App.css";
+import TransferList from "./components/list";
+function App() {
+  return (
+    <div>
+      <TransferList />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+import { useState } from "react";
+
+export default function TransferList() {
+  const [left, setLeft] = useState(["apple", "mango", "guava", "cherry"]);
+  const [right, setRight] = useState([]);
+
+  const MovetoRight = (item) => {
+    setLeft(left.filter((i) => i !== item));
+    setRight([...right, item]);
+  };
+
+  const MovetoLeft = (item) => {
+    setRight(right.filter((i) => i !== item));
+    setLeft([...left, item]);
+  };
+
+  return (
+    <div
+      style={{ display: "flex", justifyContent: "center", merginTop: "40px" }}
+    >
+      <p>Left List</p>
+      <div style={{ margin: "0 20px" }}>
+        <h3>Available</h3>
+        <ul>
+          {left.map((item) => (
+            <li key={item}>
+              {item}
+              <button onClick={() => MovetoRight(item)}>Move Right</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <p>Right List</p>
+      <div style={{ margin: "0 20px" }}>
+        <h3>Available</h3>
+        <ul>
+          {right.map((item) => (
+            <li key={item}>
+              {item}
+              <button onClick={() => MovetoLeft(item)}>Move Left</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
