@@ -1,0 +1,31 @@
+import "./App.css";
+import Greet from "./components/greeting";
+function App() {
+  return (
+    <div>
+      <Greet />
+    </div>
+  );
+}
+
+export default App;
+
+
+export default function Greet() {
+  let currentHour = new Date().getHours();
+  let greeting = "";
+
+  if (currentHour < 12) {
+    greeting = "Good Morning Bois";
+  } else if (currentHour < 18) {
+    greeting = "good evening Bois i'm sleepy";
+  } else {
+    greeting = "good night dont wake up till 8 in morning";
+  }
+
+  return (
+    <div>
+      <p> {greeting} </p>
+    </div>
+  );
+}
