@@ -1,0 +1,36 @@
+import Welcome from "./components/Welcome";
+import "./App.css";
+function App() {
+  return (
+    <div>
+      <Welcome />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+import { useState } from "react";
+
+export default function Welcome() {
+  const [welcome, setWelcome] = useState("");
+  return (
+    <div>
+      <div>
+        <input
+          type="text"
+          value={welcome}
+          onChange={(e) => setWelcome(e.target.value)}
+          placeholder="enter your name"
+        ></input>
+      </div>
+      <div>
+        <button onClick={() => alert("Welcome " + welcome)}>
+          Click me to welcome user
+        </button>
+      </div>
+    </div>
+  );
+}
