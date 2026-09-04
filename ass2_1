@@ -1,0 +1,31 @@
+import DAT from "./components/date_time";
+function App() {
+  return (
+    <div>
+      <DAT />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+import React, { useEffect, useState } from "react";
+export default function DAT() {
+  const [dateTime, setDateTime] = useState(new Date());
+  useEffect(() => {
+    const Timer = setInterval(() => {
+      setDateTime(new Date());
+    }, 1000);
+    return () => clearInterval(Timer);
+  }, []);
+  return (
+    <div>
+      <p>The Current Date and Time:</p>
+      <p>Current Date: {dateTime.toLocaleDateString()}</p>
+      <p>Current Time: {dateTime.toLocaleTimeString()}</p>
+    </div>
+  );
+}
