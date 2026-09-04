@@ -1,0 +1,30 @@
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [num, setNum] = useState(0);
+  const [fact, setFact] = useState(1);
+  const Fact = () => {
+    let f = 1;
+    for (let i = 1; i <= num; i++) {
+      f = f * i;
+    }
+    setFact(f);
+  };
+  return (
+    <div>
+      <input
+        type="number"
+        value={num}
+        placeholder="enter a number"
+        onChange={(e) => setNum(e.target.value)}
+      ></input>
+      <div>
+        <button onClick={Fact}>Click Me</button>
+      </div>
+      <p>factorial value:{fact}</p>
+    </div>
+  );
+}
+
+export default App;
