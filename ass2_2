@@ -1,0 +1,36 @@
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [EorD, setEorD] = useState(0);
+  const [Result, setResult] = useState("");
+
+  const Eord = () => {
+    EorD % 2 == 0 ? setResult("number is even") : setResult("number is odd");
+  };
+
+  return (
+    <div>
+      <label htmlFor="a1">Enter a number:</label>
+
+      <input
+        id="a1"
+        type="number"
+        value={EorD}
+        onChange={(e) => {
+          setEorD(e.target.value);
+        }}
+      />
+
+      <div>
+        <button onClick={Eord}>click me</button>
+      </div>
+
+      <div>
+        <p>Result: {Result}</p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
