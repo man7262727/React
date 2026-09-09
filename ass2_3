@@ -1,0 +1,43 @@
+import React, { useState } from "react";
+
+function PrimeChecker() {
+  const [number, setNumber] = useState("");
+  const [result, setResult] = useState("");
+
+  const checkPrime = () => {
+    const num = Number(number);
+
+    if (num <= 1) {
+      setResult("Not a prime number");
+      return;
+    }
+
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        setResult("Not a prime number");
+        return;
+      }
+    }
+
+    setResult("Prime number");
+  };
+
+  return (
+    <div>
+      <h2>Prime Number Checker</h2>
+
+      <input
+        type="number"
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+        placeholder="Enter a number"
+      />
+
+      <button onClick={checkPrime}>Check</button>
+
+      <p>{result}</p>
+    </div>
+  );
+}
+
+export default PrimeChecker;
