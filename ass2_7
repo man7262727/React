@@ -1,0 +1,33 @@
+import { useEffect, useState } from 'react'
+import './App.css'
+
+function App() {
+  const [light, setLight] = useState("red")
+
+  useEffect(()=>{
+const timer =setTimeout(()=>{
+  if(light=="red"){
+    setLight("yellow");
+  }else if(light=="yellow"){
+  setLight("green");
+  }
+  else{
+    setLight("red")
+  }
+},light==="red"?3000:light==="yellow"?1000:3000);
+
+return ()=>clearInterval(timer);},[light]);
+
+
+
+  return (
+  <div><h1>Traffic Light</h1>
+    <div style={{width:"100px",height:"100px",backgroundColor:light==="red"?"red":"gray"}}><h1 style={{textDecorationColor:"black"}}>red</h1></div>
+     <div style={{width:"100px",height:"100px",backgroundColor:light==="yellow"?"yellow":"gray"}}><h1 style={{textDecorationColor:"black"}}>yellow</h1></div>
+     <div style={{width:"100px",height:"100px",backgroundColor:light==="green"?"green":"gray"}}><h1 style={{textDecorationColor:"black"}}>green</h1></div>
+  </div>
+  )
+}
+
+export default App
+
