@@ -1,0 +1,32 @@
+import { useState } from 'react';
+import './App.css';
+
+export default function App() {
+  const [num1,setNum1]=useState("");
+  const [num2,setNum2]=useState("");
+const [cel,setcel]=useState("");
+const [fah,setfah]=useState("");
+
+  const C_F=()=>{
+    setcel((num2*9/5)+32);
+
+  };
+
+  const F_C=()=>{
+setfah((num1 - 32)*5/9);
+  };
+
+  return(<div>
+
+    <div>enter number for converting farenheit to celcius</div>
+    <div><input type="number" value={num1} onChange={(e)=>setNum1(e.target.value)}></input></div>
+<div><button onClick={C_F}>click me</button></div>  
+<div>Result:{cel}</div>
+   <div>enter number for converting celcius to farenheit</div>
+    <div><input type="number" value={num2} onChange={(e)=>setNum2(e.target.value)}></input></div>
+<div><button onClick={F_C}>click me</button></div>
+<div>Result:{fah}</div>
+
+</div>
+)
+}
